@@ -17,13 +17,24 @@
 // a.value = 20
 
 // ## 自己实现
-import {Dep, samEffect} from "./core/index.js";
+import {Dep, samEffect, reactive} from "./core/index.js";
 
-const a = new Dep(10)
-let b = 0
+// const a = new Dep(10)
+// let b = 0
+//
+// samEffect(() => {
+//   b = a.value + 10
+//   console.log(b)
+// })
+// a.value = 20
+
+const user = reactive({
+  age: 10
+})
+let nextAge = 0
 
 samEffect(() => {
-  b = a.value + 10
-  console.log(b)
+  nextAge = user.age + 1
+  console.log(nextAge)
 })
-a.value = 20
+user.age++
