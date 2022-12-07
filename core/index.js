@@ -3,14 +3,8 @@
  * Date: 22.12.4
  * Description:
  */
+import {samEffect} from "./reactivity.js";
+
 export {Dep, samEffect, reactive} from './reactivity.js'
+export {createApp} from './createApp.js'
 
-export function createApp (rootComponent) {
-  return {
-    mount(rootContainer) {
-      const setupResult = rootComponent.setup()
-
-      rootComponent.render(setupResult)
-    }
-  }
-}

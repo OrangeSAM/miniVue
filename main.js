@@ -55,33 +55,10 @@ import {Dep, samEffect, reactive} from "./core/index.js";
 // todo 优化点
 // 全量更新
 // ui不够跨平台
-const App = {
-  // template => render
-  render (context) {
-    samEffect(() => {
-      document.querySelector('#app').textContent = ''
-      const element = document.createElement('div')
-      const text = document.createTextNode('这是一个响应式count计数： ')
-      const text1 = document.createTextNode(context.obj.count)
-
-      element.append(text)
-      element.append(text1)
-      document.querySelector('#app').append(element)
-    })
-  },
-  setup () {
-    const obj = reactive({
-      count: 1
-    })
-    window.obj = obj
-
-    return {
-      obj
-    }
-  }
-}
+import App from "./App.js";
 // todo 1 不是很懂为什么都执行了createApp里的逻辑，这句还有必要存在
-App.render(App.setup())
+// 好像他注释掉了，后面可以分别跑下，有无注释的两种情况
+// App.render(App.setup())
 
 import {createApp} from "./core/index.js";
 
