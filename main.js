@@ -80,4 +80,9 @@ const App = {
     }
   }
 }
+// todo 1 不是很懂为什么都执行了createApp里的逻辑，这句还有必要存在
 App.render(App.setup())
+
+import {createApp} from "./core/index.js";
+
+createApp(App).mount(document.querySelector('#app'))
