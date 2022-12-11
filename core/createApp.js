@@ -1,4 +1,5 @@
 import {samEffect} from "./reactivity.js";
+import {mountElement} from "./renderer.js";
 
 /**
  * Author：
@@ -16,6 +17,7 @@ export function createApp (rootComponent) {
         rootContainer.textContent = ''
         const subTree = rootComponent.render(setupResult)
         console.log(subTree)
+        mountElement(subTree, rootContainer)
         // rootContainer.append(element)
       })
     }

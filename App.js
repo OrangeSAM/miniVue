@@ -16,7 +16,7 @@ export default {
     // element.append(text)
     // element.append(text1)
     // return element
-    return h('div', {}, [
+    return h('div', {id: 'sam', class: 'border'}, [
       h('p', {}, '这是一个响应式count计数'),
       h('p', {}, String(context.obj.count))
     ])
