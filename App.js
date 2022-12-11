@@ -1,4 +1,4 @@
-import {reactive, samEffect} from "./core";
+import {h, reactive, samEffect} from "./core";
 
 /**
  * Author：
@@ -9,13 +9,17 @@ import {reactive, samEffect} from "./core";
 export default {
   // template => render
   render (context) {
-    const element = document.createElement('div')
-    const text = document.createTextNode('这是一个响应式count计数： ')
-    const text1 = document.createTextNode(context.obj.count)
-
-    element.append(text)
-    element.append(text1)
-    return element
+    // const element = document.createElement('div')
+    // const text = document.createTextNode('这是一个响应式count计数： ')
+    // const text1 = document.createTextNode(context.obj.count)
+    //
+    // element.append(text)
+    // element.append(text1)
+    // return element
+    return h('div', {}, [
+      h('p', {}, '这是一个响应式count计数'),
+      h('p', {}, String(context.obj.count))
+    ])
   },
   setup () {
     const obj = reactive({

@@ -14,8 +14,9 @@ export function createApp (rootComponent) {
       // samEffect => render
       samEffect(() => {
         rootContainer.textContent = ''
-        const element = rootComponent.render(setupResult)
-        rootContainer.append(element)
+        const subTree = rootComponent.render(setupResult)
+        console.log(subTree)
+        // rootContainer.append(element)
       })
     }
   }
