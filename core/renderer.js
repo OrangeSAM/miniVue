@@ -10,7 +10,11 @@ function createElement(tag) {
 }
 
 function patchProps(el, key, prevVal, nextVal) {
-  el.setAttribute(key, nextVal)
+  if (nextVal === null) {
+    el.removeAttribute(key)
+  } else {
+    el.setAttribute(key, nextVal)
+  }
 }
 
 function insert(el, parent) {
@@ -27,7 +31,7 @@ function createTextNode(text) {
 export function mountElement(vnode, container) {
   // tag
   const {tag, props, children } = vnode
-  const el = createElement(tag)
+  const el = (vnode.el = createElement(tag))
 
   // props = {}
   for(const key in props) {
@@ -48,4 +52,43 @@ export function mountElement(vnode, container) {
 
   // insert
   insert(el, container)
+}
+
+// v1 oldVnode
+// v2 newVnode
+export function diff(v1, v2) {
+  // 1. tag
+  if (v1.tag !== v2.tag) {
+    v1.el.replaceWith(createElement(v2.tag))
+  } else {
+    // props
+    // 1.
+    // new {a,b}
+    // old {a}
+    // 新增b即可
+    // new {a}
+    // old {a,b}
+    // 删除b即可
+
+    const newProps = v2.props
+    const oldProps = v1.props
+    const el = (v2.el = v1.el)
+    console.log(newProps, oldProps)
+
+    if (newProps) {
+      for (const key in newProps) {
+        if (newProps[key] !== oldProps[key]) {
+
+          patchProps(el, key, oldProps[key], newProps[key])
+        }
+      }
+    }
+    if (oldProps) {
+      for (const key in oldProps) {
+        if (!(key in newProps)) {
+          patchProps(el, key, oldProps[key], null)
+        }
+      }
+    }
+  }
 }
