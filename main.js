@@ -62,4 +62,5 @@ import App from "./App.js";
 
 import {createApp} from "./core/index.js";
 
+// createApp 返回了一个用于挂载的高阶函数，作用是将虚拟节点挂载到真实DOM上
 createApp(App).mount(document.querySelector('#app'))

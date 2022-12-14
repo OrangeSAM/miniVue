@@ -1,4 +1,4 @@
-import {h, reactive, samEffect} from "./core";
+import {h, reactive} from "./core";
 
 /**
  * Author：
@@ -25,6 +25,7 @@ export default {
     const obj = reactive({
       count: 1
     })
+    // 将响应式数据暴露到window上，方便调试
     window.obj = obj
 
     return {

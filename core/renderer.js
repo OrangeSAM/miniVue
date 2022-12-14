@@ -14,12 +14,16 @@ function patchProps(el, key, prevVal, nextVal) {
 }
 
 function insert(el, parent) {
+  // 最后真正将虚拟dom挂载到页面的地方
   parent.append(el)
 }
 
 function createTextNode(text) {
   return document.createTextNode(text)
 }
+
+// vnode即需要渲染的虚拟dom
+// container是挂载的节点
 export function mountElement(vnode, container) {
   // tag
   const {tag, props, children } = vnode
