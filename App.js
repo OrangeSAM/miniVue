@@ -24,9 +24,18 @@ export default {
     // ])
 
     // diff测试用例
+    // test diff tag
     // return h(context.obj.tag, {}, '1')
+    // test props 1 add
     // return h('div', context.obj.props, '1')
-    return h('div', context.obj.props, '1')
+    // test props 2 remove
+    // return h('div', context.obj.props, '1')
+    // test children new string - old string/array
+    // return h('div', {}, context.obj.children)
+    // test children new Array - old string
+    // return h('div', {}, context.obj.children)
+    // test children old Array new Array
+    return h('div', {}, context.obj.children)
   },
   setup () {
     const obj = reactive({
@@ -35,7 +44,16 @@ export default {
       props: {
         a: 'a',
         b: 'b'
-      }
+      },
+      // children直接输入数字1，会有问题，因为mount的逻辑判断到
+      children: [
+        h('div', {}, '111'),
+      ],
+      childrenNew: [
+        h('div', {}, 'aaa'),
+        h('div', {}, 'bbb'),
+
+      ]
     })
     // 将响应式数据暴露到window上，方便调试
     window.obj = obj
