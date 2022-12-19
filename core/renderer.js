@@ -18,7 +18,6 @@ function patchProps(el, key, prevVal, nextVal) {
 }
 
 function insert(el, parent) {
-  // 最后真正将虚拟dom挂载到页面的地方
   parent.append(el)
 }
 
@@ -47,6 +46,7 @@ export function mountElement(vnode, container) {
   // children
   // string array，还有可能直接是数字
   if (typeof children === 'string' || typeof children === 'number') {
+    // 挂载到虚拟dom的根节点上
     insert(createTextNode(children), el)
   } else if (Array.isArray(children)){
     children.forEach(v => {
@@ -55,6 +55,7 @@ export function mountElement(vnode, container) {
   }
 
   // insert
+  // 最后真正将虚拟dom挂载到页面的地方
   insert(el, container)
 }
 
@@ -77,7 +78,6 @@ export function diff(v1, v2) {
     const newProps = v2.props
     const oldProps = v1.props
     const el = (v2.el = v1.el)
-    console.log(newProps, oldProps)
 
     if (newProps) {
       for (const key in newProps) {

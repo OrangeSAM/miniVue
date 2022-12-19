@@ -1,11 +1,11 @@
-import {h, reactive} from "./core";
 
 /**
  * Author：
  * Date: 22.12.7
  * Description:
  */
-
+// 竟然还能这样import
+import {h, reactive} from "./core";
 export default {
   // template => render
   render (context) {
@@ -17,6 +17,8 @@ export default {
     // element.append(text1)
     // return element
 
+    // --------------------------------------------------------------------------------------
+
     // 虚拟dom第一步
     // return h('div', {id: 'sam', class: 'border'}, [
     //   h('p', {}, '这是一个响应式count计数'),
@@ -26,10 +28,12 @@ export default {
     // diff测试用例
     // test diff tag
     // return h(context.obj.tag, {}, '1')
+
     // test props 1 add
     // return h('div', context.obj.props, '1')
     // test props 2 remove
     // return h('div', context.obj.props, '1')
+
     // test children new string - old string/array
     // return h('div', {}, context.obj.children)
     // test children new Array - old string
