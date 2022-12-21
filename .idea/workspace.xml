@@ -1,7 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="8a8ec15e-fb80-4c26-bca7-03a54cce182d" name="Changes" comment="" />
+    <list default="true" id="8a8ec15e-fb80-4c26-bca7-03a54cce182d" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/reactivity/effect.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/reactivity/reactive.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/reactivity/tests/effect.spec.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/reactivity/tests/reactive.spec.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/reactivity/tests/index.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tsconfig.json" beforeDir="false" afterPath="$PROJECT_DIR$/tsconfig.json" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -10,8 +18,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="TypeScript File" />
         <option value="JavaScript File" />
+        <option value="TypeScript File" />
       </list>
     </option>
   </component>
@@ -38,7 +46,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/reactivity/effect.ts" />
     <property name="nodejs.jest.jest_package" value="$PROJECT_DIR$/node_modules/jest" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="ts.external.directory.path" value="D:\WebStorm 2021.2\plugins\JavaScriptLanguage\jsLanguageServicesImpl\external" />
@@ -52,7 +60,7 @@
       <working-dir value="$PROJECT_DIR$" />
       <envs />
       <scope-kind value="TEST" />
-      <test-file value="$PROJECT_DIR$/reactivity/tests/index.spec.ts" />
+      <test-file value="$PROJECT_DIR$/reactivity/effect.ts" />
       <test-names>
         <test-name value="should init ok" />
       </test-names>
@@ -73,7 +81,7 @@
       <option name="presentableId" value="Default" />
       <updated>1671456569807</updated>
       <workItem from="1671456572139" duration="916000" />
-      <workItem from="1671458161770" duration="6187000" />
+      <workItem from="1671458161770" duration="7288000" />
     </task>
     <servers />
   </component>
