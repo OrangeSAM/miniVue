@@ -1,8 +1,9 @@
 import {reactive} from "../reactive";
-import {effect} from "../effect";
+import {effect, stop} from "../effect";
+import {run} from "jest";
 
 describe("effect", () => {
-  it('should effect work', function () {
+  it('should effect works', function () {
     const user = reactive({
       age: 10
     })
@@ -55,5 +56,40 @@ describe("effect", () => {
     // 手动执行
     run()
     expect(dummy).toBe(2)
+  });
+
+  it('should stop works', function () {
+    let dummy
+    const obj = reactive({prop: 1})
+    const runner = effect(() => {
+      dummy = obj.prop
+    })
+    obj.prop = 2
+    expect(dummy).toBe(2)
+    stop(runner)
+    obj.prop = 3
+    expect(dummy).toBe(2)
+
+    // stopped effect should still be manually callable
+    runner()
+    expect(dummy).toBe(3)
+  });
+
+  it('should onstop works', function () {
+    const obj = reactive({
+      foo: 1
+    })
+    const onStop = jest.fn()
+    let dummy
+    const runner = effect(
+  () => {
+        dummy = obj.foo
+      },
+      {
+        onStop
+      }
+    )
+    stop(runner)
+    expect(onStop).toBeCalledTimes(1)
   });
 })
