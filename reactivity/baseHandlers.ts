@@ -1,4 +1,5 @@
 import {track, trigger} from "./effect";
+import {ReactiveFlags} from "./reactive";
 
 const get = createGetter()
 const set = createSetter()
@@ -6,6 +7,13 @@ const readOnlyGet = createGetter(true)
 
 function createGetter(isReadOnly= false) {
   return function get(target, key) {
+    if (key === ReactiveFlags.IS_REACTIVE) {
+      return !isReadOnly
+    }
+    if (key === ReactiveFlags.IS_READONLY) {
+      return isReadOnly
+    }
+
     // todo 这里如何知道target就是包含age的对象呢
     const res = Reflect.get(target, key)
     if (!isReadOnly) {

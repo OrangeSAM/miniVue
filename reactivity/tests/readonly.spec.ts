@@ -1,4 +1,4 @@
-import {readOnly} from "../reactive";
+import {isReadOnly, readOnly} from "../reactive";
 
 describe('readonly', () => {
   it('should readonly works', function () {
@@ -6,6 +6,9 @@ describe('readonly', () => {
     const wrapped = readOnly(original)
     expect(wrapped).not.toBe(original)
     expect(wrapped.foo).toBe(1)
+    // 验证是否为readonly
+    expect(isReadOnly(wrapped)).toBe(true)
+    expect(isReadOnly(original)).toBe(false)
   });
 
   it('should warning when set readonly', function () {
