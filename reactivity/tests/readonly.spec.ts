@@ -9,6 +9,8 @@ describe('readonly', () => {
     // 验证是否为readonly
     expect(isReadOnly(wrapped)).toBe(true)
     expect(isReadOnly(original)).toBe(false)
+    expect(isReadOnly(wrapped.bar)).toBe(true)
+    expect(isReadOnly(original.bar)).toBe(false)
   });
 
   it('should warning when set readonly', function () {

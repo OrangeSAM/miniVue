@@ -1,10 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="8a8ec15e-fb80-4c26-bca7-03a54cce182d" name="Changes" comment="">
+    <list default="true" id="8a8ec15e-fb80-4c26-bca7-03a54cce182d" name="Changes" comment="feat: ✅1-9-实现 reactive 和 readonly 嵌套对象转换功能">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/reactivity/effect.ts" beforeDir="false" afterPath="$PROJECT_DIR$/reactivity/effect.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/reactivity/tests/effect.spec.ts" beforeDir="false" afterPath="$PROJECT_DIR$/reactivity/tests/effect.spec.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/reactivity/baseHandlers.ts" beforeDir="false" afterPath="$PROJECT_DIR$/reactivity/baseHandlers.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/reactivity/tests/reactive.spec.ts" beforeDir="false" afterPath="$PROJECT_DIR$/reactivity/tests/reactive.spec.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/reactivity/tests/readonly.spec.ts" beforeDir="false" afterPath="$PROJECT_DIR$/reactivity/tests/readonly.spec.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shared/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/shared/index.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

@@ -11,4 +11,17 @@ describe('reactive', () => {
     // 测试纯净对象是否为响应式数据
     expect(isReactive(original)).toBe(false)
   });
+
+  it('should nested reactive workds', function () {
+    const original = {
+      nested: {
+        foo: 1
+      },
+      array: [{bar: 2}]
+    }
+    const observed = reactive(original)
+    expect(isReactive(observed.nested)).toBe(true)
+    expect(isReactive(observed.array)).toBe(true)
+    expect(isReactive(observed.array[0])).toBe(true)
+  });
 })
