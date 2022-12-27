@@ -1,12 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="8a8ec15e-fb80-4c26-bca7-03a54cce182d" name="Changes" comment="feat">
+    <list default="true" id="8a8ec15e-fb80-4c26-bca7-03a54cce182d" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/reactivity/baseHandlers.ts" beforeDir="false" afterPath="$PROJECT_DIR$/reactivity/baseHandlers.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/reactivity/reactive.ts" beforeDir="false" afterPath="$PROJECT_DIR$/reactivity/reactive.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/reactivity/tests/reactive.spec.ts" beforeDir="false" afterPath="$PROJECT_DIR$/reactivity/tests/reactive.spec.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/reactivity/tests/readonly.spec.ts" beforeDir="false" afterPath="$PROJECT_DIR$/reactivity/tests/readonly.spec.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/reactivity/effect.ts" beforeDir="false" afterPath="$PROJECT_DIR$/reactivity/effect.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/reactivity/tests/effect.spec.ts" beforeDir="false" afterPath="$PROJECT_DIR$/reactivity/tests/effect.spec.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -112,6 +110,14 @@
       <workItem from="1671458161770" duration="7288000" />
       <workItem from="1671961013325" duration="8734000" />
     </task>
+    <task id="LOCAL-00001" summary="feat: ✅1-7-实现 isReactive 和 isReadonly">
+      <created>1672134853009</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1672134853009</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -128,5 +134,9 @@
       </map>
     </option>
     <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="feat: ✅1-7-实现 isReactive 和 isReadonly" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: ✅1-7-实现 isReactive 和 isReadonly" />
   </component>
 </project>

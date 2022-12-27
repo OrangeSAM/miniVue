@@ -1,5 +1,7 @@
 import {extend} from "../shared";
 
+let activeEffect:any =null
+let shouldTrack
 class ReactiveEffect {
   private _fn: any;
   deps = []
@@ -11,8 +13,19 @@ class ReactiveEffect {
     this.scheduler = scheduler
   }
   run() {
+    // 1. 会收集依赖
+    // shouldTrack 来区分
+    if (!this.active) {
+      return this._fn()
+    }
+
+    shouldTrack = true
     activeEffect = this
-    return this._fn()
+
+    const result = this._fn()
+    // reset
+    shouldTrack = false
+    return result
   }
   stop() {
     if (this.active) {
@@ -29,6 +42,8 @@ function cleanUpEffect(effect) {
   effect.deps.forEach((dep:any) => {
     dep.delete(effect)
   })
+  // 优化
+  effect.deps.length = 0
 }
 
 const targetMap = new Map()
@@ -40,6 +55,9 @@ export function track(target, key) {
   //      [原对象中的key]: [依赖该key的函数构成的数组]
   //   }
   // }
+  // if (!activeEffect) return
+  // if (!shouldTrack) return
+  if (!isTracking()) return
 
   let depsMap = targetMap.get(target)
   // 想不明白，为什么这里depsMap第一次进来就直接有值了
@@ -52,9 +70,15 @@ export function track(target, key) {
     dep = new Set()
     depsMap.set(key,dep)
   }
+
+  if (dep.has(activeEffect)) return
   dep.add(activeEffect)
   // if (!activeEffect) return // 坑货，被stop feature影响到了
-  activeEffect && activeEffect.deps.push(dep)
+  activeEffect.deps.push(dep)
+}
+
+function isTracking() {
+  return shouldTrack && activeEffect !== undefined
 }
 
 export function trigger(target, key) {
@@ -69,7 +93,6 @@ export function trigger(target, key) {
   }
 }
 
-let activeEffect:any =null
 export function effect(fn, options: any = {}) {
   const _effect = new ReactiveEffect(fn,  options.scheduler)
   // _effect.onStop = options.onStop

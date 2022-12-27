@@ -67,7 +67,8 @@ describe("effect", () => {
     obj.prop = 2
     expect(dummy).toBe(2)
     stop(runner)
-    obj.prop = 3
+    // obj.prop = 3
+    obj.prop++ // ++ 操作会涉及到get（会触发一个收集依赖的操作，导致stop清空的依赖又加回去了）和set两个操作
     expect(dummy).toBe(2)
 
     // stopped effect should still be manually callable
