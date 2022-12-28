@@ -1,12 +1,13 @@
 import {track, trigger} from "./effect";
 import {reactive, ReactiveFlags, readOnly} from "./reactive";
-import {isObject} from "../shared";
+import {extend, isObject} from "../shared";
 
 const get = createGetter()
 const set = createSetter()
 const readOnlyGet = createGetter(true)
+const shallowReadOnlyGet = createGetter(true, true)
 
-function createGetter(isReadOnly= false) {
+function createGetter(isReadOnly= false, shallow = false) {
   return function get(target, key) {
     if (key === ReactiveFlags.IS_REACTIVE) {
       return !isReadOnly
@@ -17,6 +18,10 @@ function createGetter(isReadOnly= false) {
 
     // todo 这里如何知道target就是包含age的对象呢
     const res = Reflect.get(target, key)
+
+    if (shallow) {
+      return res
+    }
     if (!isReadOnly) {
       // 依赖收集
       track(target, key)
@@ -47,3 +52,7 @@ export const readOnlyHandler = {
     return true
   }
 }
+
+export const shallowReadOnlyHandler = extend({}, readOnlyHandler, {
+  get: shallowReadOnlyGet
+})
