@@ -1,4 +1,4 @@
-import {isReadOnly, readOnly} from "../reactive";
+import {isProxy, isReadOnly, readOnly} from "../reactive";
 
 describe('readonly', () => {
   it('should readonly works', function () {
@@ -11,6 +11,8 @@ describe('readonly', () => {
     expect(isReadOnly(original)).toBe(false)
     expect(isReadOnly(wrapped.bar)).toBe(true)
     expect(isReadOnly(original.bar)).toBe(false)
+    expect(isReadOnly(original.bar)).toBe(false)
+    expect(isProxy(wrapped)).toBe(true)
   });
 
   it('should warning when set readonly', function () {

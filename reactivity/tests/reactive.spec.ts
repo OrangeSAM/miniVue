@@ -1,4 +1,4 @@
-import {isReactive, reactive} from "../reactive";
+import {isProxy, isReactive, reactive} from "../reactive";
 
 describe('reactive', () => {
   it('should reactive ok', function () {
@@ -10,6 +10,7 @@ describe('reactive', () => {
     expect(isReactive(observed)).toBe(true)
     // 测试纯净对象是否为响应式数据
     expect(isReactive(original)).toBe(false)
+    expect(isProxy(observed)).toBe(true)
   });
 
   it('should nested reactive workds', function () {
