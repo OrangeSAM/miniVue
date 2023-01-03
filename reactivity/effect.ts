@@ -70,25 +70,32 @@ export function track(target, key) {
     dep = new Set()
     depsMap.set(key,dep)
   }
+  trackEffects(dep)
+}
 
+export function trackEffects(dep) {
   if (dep.has(activeEffect)) return
   dep.add(activeEffect)
   // if (!activeEffect) return // 坑货，被stop feature影响到了
   activeEffect.deps.push(dep)
 }
 
-function isTracking() {
+export function isTracking() {
   return shouldTrack && activeEffect !== undefined
 }
 
 export function trigger(target, key) {
   let depsMap = targetMap.get(target)
   let dep = depsMap.get(key)
+  triggerEffects(dep);
+}
+
+export function triggerEffects(dep: any) {
   for (const effect of dep) {
     if (effect.scheduler) {
-      effect.scheduler()
+      effect.scheduler();
     } else {
-      effect.run()
+      effect.run();
     }
   }
 }
