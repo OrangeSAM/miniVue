@@ -2,7 +2,8 @@ import {mutableHandler, readOnlyHandler, shallowReadOnlyHandler} from "./baseHan
 
 export const enum ReactiveFlags {
   IS_REACTIVE = "__v_isReactive",
-  IS_READONLY = "__v_isReadOnly"
+  IS_READONLY = "__v_isReadOnly",
+  IS_REF = "__v_isRef"
 }
 
 export function reactive(raw) {
@@ -27,6 +28,15 @@ export function isReadOnly(val) {
 
 export function isProxy(val) {
   return isReactive(val) || isReadOnly(val)
+}
+
+
+export function isRef(val) {
+  return !!val[ReactiveFlags.IS_REF]
+}
+
+export function unRef(val) {
+  return isRef(val) ? val.value : val
 }
 
 function createActiveObject(raw:any, baseHandler) {

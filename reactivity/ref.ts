@@ -1,11 +1,12 @@
 import { hasChanged, isObject } from "../shared"
 import { isTracking, trackEffects, triggerEffects } from "./effect"
-import { reactive } from "./reactive"
+import { reactive, ReactiveFlags } from "./reactive"
 
 class RefImpl {
 	private _value: any
 	public dep
 	private _rawValue: any
+	public [ReactiveFlags.IS_REF] = true
 	constructor(value) {
 		this._rawValue = value
 		// 1. 看看value 是不是对象
